@@ -6,25 +6,16 @@
  */
 
 include_once("Action.php");
+include_once("Model/C_User.php");
 $action = new Action();
 
-// $_SESSION['email'] = $_POST['email'];
-// $_SESSION['password'] = $_POST['password'];
+$var = new User(0, $_POST['cin'], $_POST['username'], $_POST['gender'], $_POST['email'], $_POST['password'], 'user', null, null, null, 1, getdate());
+$_SESSION['username'] = $_POST['username'];
+$_SESSION['email'] = $_POST['email'];
+$_SESSION['status'] = 'user';
 
-$result = $action->getService()->getPDOUser()->authenticateUserByEmail($_POST['email'], $_POST['password']);
-if ($result != null) {
-    $_SESSION['username'] = $result->getUsername();
-    $_SESSION['email'] = $_POST['email'];
-    $_SESSION['gender'] = $result->getGender();
-    $_SESSION['status'] = $result->getStatus();
-    $_SESSION['phone'] = $result->getPhone();
-    $_SESSION['imagePath'] = $result->getImagePath();
-    $_SESSION['birthday'] = $result->getBirthday();
-    $_SESSION['cin'] = $result->getCin();
-    $_SESSION['enable'] = $result->getEnable(); //if not we need to redirect it to anothe page saying you can't access the site
-} else {
-    header("Location:index.php?action=loginFailed");
-}
+$action->getService()->getPDOUser()->addUser($var);
+
 // $email = $_POST['email'];
 // $password = $_POST['password'];
 // $user = $action->getService()->authenticateUser($email, $password);

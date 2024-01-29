@@ -57,7 +57,7 @@ if (isset($_GET['action'])) {
 }
 
 //+
-if ((!isset($_SESSION['username']) || $_SESSION['username'] == null) && $action != "login" && $action != "registerPage") $action = "loginPage";
+if ((!isset($_SESSION['username']) || $_SESSION['username'] == null) && $action != "login" && $action != "registerPage" && $action != "register") $action = "loginPage";
 //Fin
 
 //rint_r($_SESSION);

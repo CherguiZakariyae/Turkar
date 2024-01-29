@@ -18,10 +18,10 @@ class PDOUserDao
         $user->setPassword($hashedPassword);
 
         $sqlQuery = 'INSERT INTO users(CIN, username, gender, email, password, status, phone, imagePath, birthday, enable, dateCreate) 
-                     VALUES (:CIN, :username, :gender, :email, :password, :status, :phone, :imagePath, :birthday, :enable, :dateCreate)';
+                     VALUES (:cin, :username, :gender, :email, :password, :status, :phone, :imagePath, :birthday, :enable, NOW())';
         $insertStatement = $this->database->getDb()->prepare($sqlQuery);
         $insertStatement->execute([
-            'CIN' => $user->getCIN(),
+            'cin' => $user->getCIN(),
             'username' => $user->getUsername(),
             'gender' => $user->getGender(),
             'email' => $user->getEmail(),
@@ -31,7 +31,6 @@ class PDOUserDao
             'imagePath' => $user->getImagePath(),
             'birthday' => $user->getBirthday(),
             'enable' => $user->getEnable(),
-            'dateCreate' => $user->getDateCreate(),
         ]);
         return $this->database->getDb()->lastInsertId();
     }
@@ -118,15 +117,14 @@ class PDOUserDao
 
     public function authenticateUserByEmail($email, $password)
     {
-        $query = "SELECT * FROM users WHERE Email = :email";
+        $query = "SELECT * FROM users WHERE email = :email";
         $statement = $this->database->getDb()->prepare($query);
         $statement->execute([
             'email' => $email,
         ]);
 
         $user = $statement->fetch();
-
-        if ($user && password_verify($password, $user['Password'])) {
+        if ($user && password_verify($password, $user['password'])) {
             // Authentication successful
             return new User(
                 $user['id'],

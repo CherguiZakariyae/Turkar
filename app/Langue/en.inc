@@ -17,4 +17,5 @@ define("_English","English");
 define("_Trips","Trips");
 define("_New","New");
 define("_Profile","Profile");
+define("_IncorrectMailOrPassword","Incorrect email or password");
 ?>

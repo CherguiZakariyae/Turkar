@@ -19,11 +19,16 @@ $router = array(
 	),
 	'login' => array( /* Login */
 		'Redirect' => 'homepage',
+		//'View' => 'Login',
 		'Action' => 'Action_Login'
 	),
 	'registerPage' => array( /* Show register Page */
 		'View' => 'Register',
 		'Action' => 'Action_RegisterPage'
+	),
+	'register' => array( /* register */
+		'Redirect' => 'homepage',
+		'Action' => 'Action_Register'
 	),
 	'logout' => array( /* logout */
 		'Redirect' => 'loginPage',
