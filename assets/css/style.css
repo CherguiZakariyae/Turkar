@@ -15,7 +15,7 @@ body {
 }
 
 a {
-  color: #47b2e4;
+  color: #222d54;
   text-decoration: none;
 }
 
@@ -44,7 +44,7 @@ h6 {
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #37517e;
+  background: #222d54 ;
 }
 
 #preloader:before {
@@ -52,7 +52,7 @@ h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #37517e;
+  border: 6px solid #222d54 ;
   border-top-color: #fff;
   border-bottom-color: #fff;
   border-radius: 50%;
@@ -115,7 +115,7 @@ h6 {
 
 #header.header-scrolled,
 #header.header-inner-pages {
-  background: rgba(40, 58, 90, 0.9);
+  background: #e31a33;
 }
 
 #header .logo {
@@ -771,7 +771,7 @@ section {
 
 @media (max-width: 575px) {
   .why-us .img {
-    min-height: 200px;
+    min-height: none;
   }
 }
 
@@ -1637,7 +1637,7 @@ section {
 --------------------------------------------------------------*/
 #footer {
   font-size: 14px;
-  background: #37517e;
+  background: #e31a33;
 }
 
 #footer .footer-newsletter {
@@ -1770,7 +1770,7 @@ section {
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #47b2e4;
+  background: #392f2d;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
