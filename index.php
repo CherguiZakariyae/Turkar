@@ -72,7 +72,7 @@
             </ul>
           </li> -->
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          <li><a class="getstarted scrollto" href="app/">Get Started</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -90,7 +90,7 @@
           <h2>Your travels matter, and with us, you're in good company. Join
             our carpooling community and experience the joy of reliable, shared rides tailored to your needs.</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="app/" class="btn-get-started scrollto">Get Started</a>
             <a href="https://www.youtube.com/watch?v=PTfjcr5bJFg&ab_channel=AhmedSafa" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>

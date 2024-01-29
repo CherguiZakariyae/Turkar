@@ -79,7 +79,7 @@
                         <i class="fab fa-facebook mr-2"></i><?= _FaceebookSignIn; ?>
                     </a>
                     <a href="#" class="btn btn-block btn-danger">
-                        <i class="fab fa-google-plus mr-2"></i><?= _GoogleSignIn; ?>
+                        <i class="fab fa-google mr-2"></i><?= _GoogleSignIn; ?>
                     </a>
                 </div>
                 <!-- /.social-auth-links -->
