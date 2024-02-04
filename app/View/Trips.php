@@ -27,7 +27,6 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
                             <td>aaaaaa</td>
                             <td>bbbbbb</td>
                             <td>26/01/2024 12:00</td>
@@ -42,22 +41,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                            <td>cccccc</td>
-                            <td>dddddd</td>
-                            <td>26/01/2024 12:00</td>
-                            <td>2</td>
-                            <td>150</td>
-                            <td><span class="badge badge-danger">Soon</span></td>
-                            <td class="text-center py-0 align-middle">
-                                <div class="btn-group btn-group-sm">
-                                    <a title="Editer" href="javascript:edit(1)" class="btn btn-info"><i class="fas fa-edit"></i></a>
-                                    <a title="Visionner" href="javascript:show(1)" class="btn btn-secondary"><i class="fas fa-eye"></i></a>
-                                    <a title="Supprimer" onclick="return deleteA(1)" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
+
                     </tbody>
                     <tfoot>
                         <!-- <tr>

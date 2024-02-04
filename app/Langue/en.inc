@@ -18,4 +18,17 @@ define("_Trips","Trips");
 define("_New","New");
 define("_Profile","Profile");
 define("_IncorrectMailOrPassword","Incorrect email or password");
+define("_Locations","Locations");
+define("_Location","Location");
+define("_Name","Name");
+define("_Search","Search");
+define("_Status","Status");
+define("_Valide","Valide");
+define("_Quit","Quit");
+define("_Save","Save");
+define("_Enter","Enter");
+define("_Enable","Enable");
+define("_Disable","Disable");
+define("_Show","Show");
+define("_Edit","Edit");
 ?>

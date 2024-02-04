@@ -58,41 +58,34 @@ $router = array(
 		'View' => 'Trips',
 		'Action' => 'Action_Trips'
 	),
-	'manageColors' => array( /*Colors Management*/
-		'View' => 'ManageColors',
-		'Action' => 'Action_ManageColors'
+	'manageLocations' => array( /*Locations Management*/
+		'View' => 'ManageLocations',
+		'Action' => 'Action_ManageLocations'
 	),
-	'newColor' => array(
-		'View' => 'AddColor',
+	'newLocation' => array(
+		'View' => 'AddLocation',
 		'Action' => 'Action_New'
 	),
-	'addColor' => array(
-		'Redirect' => 'editColor',
-		'Action' => 'Action_AddColor'
+	'addLocation' => array(
+		//'View' => 'AddLocation',
+		'Redirect' => 'manageLocations',
+		'Action' => 'Action_AddLocation'
 	),
-	'addColor&close' => array(
-		'Redirect' => 'manageColors',
-		'Action' => 'Action_AddColor'
+	'showLocation' => array(
+		'View' => 'ShowLocation',
+		'Action' => 'Action_ShowLocation'
 	),
-	'showColor' => array(
-		'View' => 'ShowColor',
-		'Action' => 'Action_ShowColor'
+	'editLocation' => array(
+		'View' => 'EditLocation',
+		'Action' => 'Action_ShowLocation'
 	),
-	'editColor' => array(
-		'View' => 'EditColor',
-		'Action' => 'Action_ShowColor'
+	'saveLocation' => array(
+		'Redirect' => 'manageLocations',
+		'Action' => 'Action_SaveLocation'
 	),
-	'saveColor' => array(
-		'Redirect' => 'editColor',
-		'Action' => 'Action_SaveColor'
-	),
-	'saveColor&close' => array(
-		'Redirect' => 'manageColors',
-		'Action' => 'Action_SaveColor'
-	),
-	'deleteColor' => array(
-		'Redirect' => 'manageColors',
-		'Action' => 'Action_DeleteColor'
+	'deleteLocation' => array(
+		'Redirect' => 'manageLocations',
+		'Action' => 'Action_DeleteLocation'
 	),
 	'manageUsers' => array( /*Users Management*/
 		'View' => 'ManageUsers',
