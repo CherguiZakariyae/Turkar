@@ -63,14 +63,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Menu Body -->
                         <li class="user-body">
                             <div class="row">
-                                <div class="col-4 text-center">
-                                    <a href="#">Vehicles</a>
+                                <div class="col-6 text-center">
+                                    <a href="index.php?action=manageUserVehicles">Vehicles</a>
                                 </div>
-                                <div class="col-4 text-center">
-                                    <a href="#">Trips</a>
-                                </div>
-                                <div class="col-4 text-center">
-                                    <a href="#">Reviews</a>
+                                <div class="col-6 text-center">
+                                    <a href="index.php?action=manageUserTrips">Trips</a>
                                 </div>
                             </div>
                             <!-- /.row -->
@@ -222,7 +219,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="index.php?action=manageVehicles" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Vehicles</p>
                                     </a>

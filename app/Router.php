@@ -87,6 +87,64 @@ $router = array(
 		'Redirect' => 'manageLocations',
 		'Action' => 'Action_DeleteLocation'
 	),
+	'manageVehicles' => array( /*Vehicles Management*/
+		'View' => 'ManageVehicles',
+		'Action' => 'Action_ManageVehicles'
+	),
+	'newVehicle' => array(
+		'View' => 'AddVehicle',
+		'Action' => 'Action_New'
+	),
+	'addVehicle' => array(
+		//'View' => 'AddVehicle',
+		'Redirect' => 'manageVehicles',
+		'Action' => 'Action_AddVehicle'
+	),
+	'showVehicle' => array(
+		'View' => 'ShowVehicle',
+		'Action' => 'Action_ShowVehicle'
+	),
+	'editVehicle' => array(
+		'View' => 'EditVehicle',
+		'Action' => 'Action_ShowVehicle'
+	),
+	'saveVehicle' => array(
+		'Redirect' => 'manageVehicles',
+		'Action' => 'Action_SaveVehicle'
+	),
+	'deleteVehicle' => array(
+		'Redirect' => 'manageVehicles',
+		'Action' => 'Action_DeleteVehicle'
+	),
+	'manageTrips' => array( /*Trips Management*/
+		'View' => 'ManageTrips',
+		'Action' => 'Action_ManageTrips'
+	),
+	'newTrip' => array(
+		'View' => 'AddTrip',
+		'Action' => 'Action_NewTrip'
+	),
+	'addTrip' => array(
+		//'View' => 'AddTrip',
+		'Redirect' => 'trips',
+		'Action' => 'Action_AddTrip'
+	),
+	'showTrip' => array(
+		'View' => 'ShowTrip',
+		'Action' => 'Action_ShowTrip'
+	),
+	'editTrip' => array(
+		'View' => 'EditTrip',
+		'Action' => 'Action_ShowTrip'
+	),
+	'saveTrip' => array(
+		'Redirect' => 'manageTrips',
+		'Action' => 'Action_SaveTrip'
+	),
+	'deleteTrip' => array(
+		'Redirect' => 'manageTrips',
+		'Action' => 'Action_DeleteTrip'
+	),
 	'manageUsers' => array( /*Users Management*/
 		'View' => 'ManageUsers',
 		'Action' => 'Action_ManageUsers'
@@ -118,11 +176,6 @@ $router = array(
 		'Redirect' => 'editUser',
 		'Action' => 'Action_SaveUser'
 	),
-	'saveUser&close' => array(
-		//'View' => 'EditUser',
-		'Redirect' => 'manageUsers',
-		'Action' => 'Action_SaveUser'
-	),
 	'editUser' => array(
 		'View' => 'EditUser',
 		'Action' => 'Action_ShowUser'
@@ -130,6 +183,18 @@ $router = array(
 	'majUsers' => array(
 		'Redirect' => 'manageUsers',
 		'Action' => 'Action_MajUsers'
+	),
+	'manageUserVehicles' => array(
+		'View' => 'ManageUserVehicles',
+		'Action' => 'Action_ManageUserVehicles'
+	),
+	'manageUserTrips' => array(
+		'View' => 'ManageUserTrips',
+		'Action' => 'Action_ManageUserTrips'
+	),
+	'manageUserReviews' => array(
+		'View' => 'ManageUserReviews',
+		'Action' => 'Action_ManageUserReviews'
 	),
 	'importDatabase' => array( /* Database Import*/
 		'Redirect' => 'homepage',

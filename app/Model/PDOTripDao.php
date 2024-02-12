@@ -104,4 +104,32 @@ class PDOTripDao
             return null;
         }
     }
+    public function getAllTripsByUser($id)
+    {
+        $tab = array();
+        $query = "SELECT * FROM trips WHERE driverId=:id";
+        $statement = $this->database->getDb()->prepare($query);
+        $statement->execute([
+            'id' => $id,
+        ]);
+        $rs = $statement->fetchAll();
+        foreach ($rs as $row) {
+            $tab[] = new Trip(
+                $row['id'],
+                $row['driverId'],
+                $row['startLocationId'],
+                $row['endLocationId'],
+                $row['departureTime'],
+                $row['availableSeats'],
+                $row['status'],
+                $row['price'],
+                $row['enable'],
+                $row['dateCreate']
+            );
+        }
+        if (count($tab) > 0) {
+            return $tab;
+        } else
+            return null;
+    }
 }
