@@ -13,6 +13,7 @@ $action = new Action();
 
 $result = $action->getService()->getPDOUser()->authenticateUserByEmail($_POST['email'], $_POST['password']);
 if ($result != null) {
+    $_SESSION['idUser'] = $result->getId();
     $_SESSION['username'] = $result->getUsername();
     $_SESSION['email'] = $_POST['email'];
     $_SESSION['gender'] = $result->getGender();

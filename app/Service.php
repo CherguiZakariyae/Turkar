@@ -114,4 +114,20 @@ class service
     {
         return $this->getPDOUser()->authenticateUserByEmail($email, $password);
     }
+
+    public function getAllTrips()
+    {
+        $list = $this->getPDOTrip()->getAllTrips();
+        if ($list !== null) {
+            foreach ($list as $var) {
+                $startLocation = $this->getPDOLocation()->getLocationById($var->getStartLocationId());
+                $endLocation = $this->getPDOLocation()->getLocationById($var->getEndLocationId());
+                $driver = $this->getPDOUser()->getUserById($var->getDriverId());
+                $var->setStartLocation($startLocation);
+                $var->setEndLocation($endLocation);
+                $var->setDriver($driver);
+            }
+        }
+        return $list;
+    }
 }

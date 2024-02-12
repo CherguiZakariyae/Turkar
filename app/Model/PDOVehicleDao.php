@@ -96,4 +96,31 @@ class PDOVehicleDao
             return null;
         }
     }
+    public function getAllVehiclesByUser($id)
+    {
+        $tab = array();
+        $query = "SELECT * FROM vehicles WHERE ownerID=:id";
+        $statement = $this->database->getDb()->prepare($query);
+        $statement->execute([
+            'id' => $id,
+        ]);
+        $rs = $statement->fetchAll();
+        foreach ($rs as $row) {
+            $tab[] = new Vehicle(
+                $row['id'],
+                $row['ownerID'],
+                $row['name'],
+                $row['brand'],
+                $row['model'],
+                $row['year'],
+                $row['plateNumber'],
+                $row['enable'],
+                $row['dateCreate']
+            );
+        }
+        if (count($tab) > 0) {
+            return $tab;
+        } else
+            return null;
+    }
 }

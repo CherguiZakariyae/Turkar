@@ -58,41 +58,92 @@ $router = array(
 		'View' => 'Trips',
 		'Action' => 'Action_Trips'
 	),
-	'manageColors' => array( /*Colors Management*/
-		'View' => 'ManageColors',
-		'Action' => 'Action_ManageColors'
+	'manageLocations' => array( /*Locations Management*/
+		'View' => 'ManageLocations',
+		'Action' => 'Action_ManageLocations'
 	),
-	'newColor' => array(
-		'View' => 'AddColor',
+	'newLocation' => array(
+		'View' => 'AddLocation',
 		'Action' => 'Action_New'
 	),
-	'addColor' => array(
-		'Redirect' => 'editColor',
-		'Action' => 'Action_AddColor'
+	'addLocation' => array(
+		//'View' => 'AddLocation',
+		'Redirect' => 'manageLocations',
+		'Action' => 'Action_AddLocation'
 	),
-	'addColor&close' => array(
-		'Redirect' => 'manageColors',
-		'Action' => 'Action_AddColor'
+	'showLocation' => array(
+		'View' => 'ShowLocation',
+		'Action' => 'Action_ShowLocation'
 	),
-	'showColor' => array(
-		'View' => 'ShowColor',
-		'Action' => 'Action_ShowColor'
+	'editLocation' => array(
+		'View' => 'EditLocation',
+		'Action' => 'Action_ShowLocation'
 	),
-	'editColor' => array(
-		'View' => 'EditColor',
-		'Action' => 'Action_ShowColor'
+	'saveLocation' => array(
+		'Redirect' => 'manageLocations',
+		'Action' => 'Action_SaveLocation'
 	),
-	'saveColor' => array(
-		'Redirect' => 'editColor',
-		'Action' => 'Action_SaveColor'
+	'deleteLocation' => array(
+		'Redirect' => 'manageLocations',
+		'Action' => 'Action_DeleteLocation'
 	),
-	'saveColor&close' => array(
-		'Redirect' => 'manageColors',
-		'Action' => 'Action_SaveColor'
+	'manageVehicles' => array( /*Vehicles Management*/
+		'View' => 'ManageVehicles',
+		'Action' => 'Action_ManageVehicles'
 	),
-	'deleteColor' => array(
-		'Redirect' => 'manageColors',
-		'Action' => 'Action_DeleteColor'
+	'newVehicle' => array(
+		'View' => 'AddVehicle',
+		'Action' => 'Action_New'
+	),
+	'addVehicle' => array(
+		//'View' => 'AddVehicle',
+		'Redirect' => 'manageVehicles',
+		'Action' => 'Action_AddVehicle'
+	),
+	'showVehicle' => array(
+		'View' => 'ShowVehicle',
+		'Action' => 'Action_ShowVehicle'
+	),
+	'editVehicle' => array(
+		'View' => 'EditVehicle',
+		'Action' => 'Action_ShowVehicle'
+	),
+	'saveVehicle' => array(
+		'Redirect' => 'manageVehicles',
+		'Action' => 'Action_SaveVehicle'
+	),
+	'deleteVehicle' => array(
+		'Redirect' => 'manageVehicles',
+		'Action' => 'Action_DeleteVehicle'
+	),
+	'manageTrips' => array( /*Trips Management*/
+		'View' => 'ManageTrips',
+		'Action' => 'Action_ManageTrips'
+	),
+	'newTrip' => array(
+		'View' => 'AddTrip',
+		'Action' => 'Action_NewTrip'
+	),
+	'addTrip' => array(
+		//'View' => 'AddTrip',
+		'Redirect' => 'trips',
+		'Action' => 'Action_AddTrip'
+	),
+	'showTrip' => array(
+		'View' => 'ShowTrip',
+		'Action' => 'Action_ShowTrip'
+	),
+	'editTrip' => array(
+		'View' => 'EditTrip',
+		'Action' => 'Action_ShowTrip'
+	),
+	'saveTrip' => array(
+		'Redirect' => 'manageTrips',
+		'Action' => 'Action_SaveTrip'
+	),
+	'deleteTrip' => array(
+		'Redirect' => 'manageTrips',
+		'Action' => 'Action_DeleteTrip'
 	),
 	'manageUsers' => array( /*Users Management*/
 		'View' => 'ManageUsers',
@@ -125,11 +176,6 @@ $router = array(
 		'Redirect' => 'editUser',
 		'Action' => 'Action_SaveUser'
 	),
-	'saveUser&close' => array(
-		//'View' => 'EditUser',
-		'Redirect' => 'manageUsers',
-		'Action' => 'Action_SaveUser'
-	),
 	'editUser' => array(
 		'View' => 'EditUser',
 		'Action' => 'Action_ShowUser'
@@ -137,6 +183,18 @@ $router = array(
 	'majUsers' => array(
 		'Redirect' => 'manageUsers',
 		'Action' => 'Action_MajUsers'
+	),
+	'manageUserVehicles' => array(
+		'View' => 'ManageUserVehicles',
+		'Action' => 'Action_ManageUserVehicles'
+	),
+	'manageUserTrips' => array(
+		'View' => 'ManageUserTrips',
+		'Action' => 'Action_ManageUserTrips'
+	),
+	'manageUserReviews' => array(
+		'View' => 'ManageUserReviews',
+		'Action' => 'Action_ManageUserReviews'
 	),
 	'importDatabase' => array( /* Database Import*/
 		'Redirect' => 'homepage',

@@ -13,6 +13,11 @@ class Trip
     private $enable;
     private $dateCreate;
 
+    //relations
+    private $driver;
+    private $startLocation;
+    private $endLocation;
+
     /**
      * Trip constructor.
      * @param $id
@@ -236,6 +241,66 @@ class Trip
     public function setStatus($status)
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of startLocation
+     */
+    public function getStartLocation()
+    {
+        return $this->startLocation;
+    }
+
+    /**
+     * Set the value of startLocation
+     *
+     * @return  self
+     */
+    public function setStartLocation($startLocation)
+    {
+        $this->startLocation = $startLocation;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of endLocation
+     */
+    public function getEndLocation()
+    {
+        return $this->endLocation;
+    }
+
+    /**
+     * Set the value of endLocation
+     *
+     * @return  self
+     */
+    public function setEndLocation($endLocation)
+    {
+        $this->endLocation = $endLocation;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of driver
+     */
+    public function getDriver()
+    {
+        return $this->driver;
+    }
+
+    /**
+     * Set the value of driver
+     *
+     * @return  self
+     */
+    public function setDriver($driver)
+    {
+        $this->driver = $driver;
 
         return $this;
     }
