@@ -123,4 +123,13 @@ class PDOVehicleDao
         } else
             return null;
     }
+    public function getCountVehicles()
+    {
+        $list = $this->getAllVehicles();
+        if ($list !== null) {
+            return count($list);
+        } else {
+            return 0;
+        }
+    }
 }

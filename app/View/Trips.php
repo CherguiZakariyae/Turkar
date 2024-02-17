@@ -51,14 +51,22 @@
                         <?php
                         if ($list != null) {
                             $L = count($list);
-                            for ($i = 0; $i < $L; $i++) { ?>
+                            for ($i = 0; $i < $L; $i++) {
+                                if ($list[$i]->getStatus() == "Arrived")
+                                    $badge = "badge-success";
+                                if ($list[$i]->getStatus() == "Started")
+                                    $badge = "badge-warning";
+                                if ($list[$i]->getStatus() == "Soon")
+                                    $badge = "badge-danger";
+                                if ($list[$i]->getStatus() == "Processing")
+                                    $badge = "badge-info"; ?>
                                 <tr>
                                     <td><?= $list[$i]->getStartLocation()->getName(); ?></td>
                                     <td><?= $list[$i]->getEndLocation()->getName(); ?></td>
                                     <td><?= $list[$i]->getDepartureTime(); ?></td>
                                     <td><?= $list[$i]->getAvailableSeats(); ?></td>
                                     <td><?= $list[$i]->getPrice(); ?></td>
-                                    <td><?= $list[$i]->getStatus(); ?></td>
+                                    <td><span class="badge <?= $badge ?>"><?= $list[$i]->getStatus(); ?></span></td>
                                     <td class="text-center py-0 align-middle">
                                         <div class="btn-group btn-group-sm">
                                             <a title="Editer" href="javascript:edit(<?= $list[$i]->getId(); ?>)" class="btn btn-info"><i class="fas fa-edit"></i></a>

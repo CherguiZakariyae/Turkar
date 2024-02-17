@@ -90,7 +90,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer text-center">
-                    <a href="index.php?action=manageTrips" class="btn btn-secondary"><?= _Quit; ?></a>
+                    <a href="index.php?action=trips" class="btn btn-secondary"><?= _Quit; ?></a>
                     <button type="submit" id="save" class="btn btn-primary"><?= _Save; ?></button>
                 </div>
             </form>

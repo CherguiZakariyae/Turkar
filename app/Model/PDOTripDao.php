@@ -104,6 +104,39 @@ class PDOTripDao
             return null;
         }
     }
+    public function getLatestTrips()
+    {
+        $tab = array();
+        $rs = $this->database->select("SELECT * FROM trips where departureTime>NOW() ORDER by departureTime desc LIMIT 5");
+        foreach ($rs as $row) {
+            $tab[] = new Trip(
+                $row['id'],
+                $row['driverId'],
+                $row['startLocationId'],
+                $row['endLocationId'],
+                $row['departureTime'],
+                $row['availableSeats'],
+                $row['status'],
+                $row['price'],
+                $row['enable'],
+                $row['dateCreate']
+            );
+        }
+        if (count($tab) > 0) {
+            return $tab;
+        } else {
+            return null;
+        }
+    }
+    public function getCountTrips()
+    {
+        $list = $this->getAllTrips();
+        if ($list !== null) {
+            return count($list);
+        } else {
+            return 0;
+        }
+    }
     public function getAllTripsByUser($id)
     {
         $tab = array();
