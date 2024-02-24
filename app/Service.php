@@ -130,4 +130,19 @@ class service
         }
         return $list;
     }
+    public function getLatestTrips()
+    {
+        $list = $this->getPDOTrip()->getLatestTrips();
+        if ($list !== null) {
+            foreach ($list as $var) {
+                $startLocation = $this->getPDOLocation()->getLocationById($var->getStartLocationId());
+                $endLocation = $this->getPDOLocation()->getLocationById($var->getEndLocationId());
+                $driver = $this->getPDOUser()->getUserById($var->getDriverId());
+                $var->setStartLocation($startLocation);
+                $var->setEndLocation($endLocation);
+                $var->setDriver($driver);
+            }
+        }
+        return $list;
+    }
 }

@@ -90,9 +90,74 @@
           <h2>Your travels matter, and with us, you're in good company. Join
             our carpooling community and experience the joy of reliable, shared rides tailored to your needs.</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="app/" class="btn-get-started scrollto">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=PTfjcr5bJFg&ab_channel=AhmedSafa" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            <?php
+            include_once("app/Controller/Action.php");
+
+            if (isset($_SESSION['lang'])) {
+              if ($_SESSION['lang'] == "turk") {
+                include "app/Langue/turk.inc";
+              } else {
+                $_SESSION['lang'] = "en";
+                include "app/Langue/en.inc";
+              }
+            } else {
+              if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+                $BrowserLanguage = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+                if ($BrowserLanguage == 'turk') {
+                  include "app/Langue/turk.inc";
+                  $_SESSION['lang'] = "turk";
+                } else {
+                  include "app/Langue/en.inc";
+                  $_SESSION['lang'] = "en";
+                }
+              }
+            }
+            $action = new Action();
+            $locations = $action->getService()->getPDOLocation()->getAllLocations();
+            ?>
+            <form method="POST" class="find-count">
+
+              <div class="row">
+                <div class="col-12 col-md-4">
+                  <select id="startLocationId" class="form-control" name="startLocationId">
+                    <option selected disabled><?php echo _Departure; ?></option>
+                    <?php
+                    if ($locations != null) {
+                      $L = count($locations);
+                      for ($i = 0; $i < $L; $i++) { ?>
+                        <option value="<?php echo $locations[$i]->getId(); ?>"><?php echo $locations[$i]->getName(); ?> </option>
+                    <?php }
+                    } ?>
+                  </select>
+                </div>
+                <div class="col-12 col-md-4">
+                  <select id="endLocationId" class="form-control" name="endLocationId">
+                    <option selected disabled><?php echo _Arrival; ?></option>
+                    <?php
+                    if ($locations != null) {
+                      $L = count($locations);
+                      for ($i = 0; $i < $L; $i++) { ?>
+                        <option value="<?php echo $locations[$i]->getId(); ?>"><?php echo $locations[$i]->getName(); ?> </option>
+                    <?php }
+                    } ?>
+                  </select>
+                </div>
+                <div class="col-12 col-md-4">
+                  <input type="date" class="form-control float-right" id="departureTime" name="departureTime">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-7"></div>
+                <div class="col-12 col-md-5 mb-4" style="text-align: right;">
+                  <button type="button" class="btn-get-started scrollto" data-toggle="modal" data-target="#modal-lg">
+                    Search
+                  </button>
+                </div>
+              </div>
+
+            </form>
           </div>
+
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           <img src="assets/img/hero-img1.png" class="img-fluid animated" alt="">
@@ -150,7 +215,7 @@
         <div class="row content">
           <div class="col-lg-6">
             <p>
-            Turkar is a travel network designed exclusively for Istanbul, with over 7 million users sharing journeys across all regions. Turkar uses technology to fill empty seats on the road, bringing carpoolers together and making travel more inexpensive, social, and convenient. Turkar's ecological and human transportation network saves tons of CO2 and facilitates millions of human contacts each year.
+              Turkar is a travel network designed exclusively for Istanbul, with over 7 million users sharing journeys across all regions. Turkar uses technology to fill empty seats on the road, bringing carpoolers together and making travel more inexpensive, social, and convenient. Turkar's ecological and human transportation network saves tons of CO2 and facilitates millions of human contacts each year.
             </p>
             <ul>
               <li><i class="ri-check-double-line"></i> 7 million members</li>
@@ -160,7 +225,7 @@
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
-            Carpooling also provides a unique environment, allowing exchanges between people who would never meet otherwise yet join each other to share a ride.
+              Carpooling also provides a unique environment, allowing exchanges between people who would never meet otherwise yet join each other to share a ride.
             </p>
             <a href="#" class="btn-learn-more">Learn More</a>
           </div>
@@ -180,7 +245,7 @@
             <div class="content">
               <h3><strong>Welcome to Turkar!</strong></h3>
               <p>
-              Unleashing the Power of Connectivity. Your gateway to seamless experiences, where innovation meets convenience. Explore a world of possibilities as we redefine connections and simplify your digital journey. Welcome aboard the Turkar experience!
+                Unleashing the Power of Connectivity. Your gateway to seamless experiences, where innovation meets convenience. Explore a world of possibilities as we redefine connections and simplify your digital journey. Welcome aboard the Turkar experience!
               </p>
             </div>
 
@@ -188,20 +253,20 @@
               <ul>
                 <li>
                   <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span>
-                  Find your carpool <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                    Find your carpool <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
                     <p>
-                    You can filter the results to refine your search and consult the reviews of all members to reassure yourself.
+                      You can filter the results to refine your search and consult the reviews of all members to reassure yourself.
                     </p>
                   </div>
                 </li>
 
                 <li>
                   <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span>
-                  Reserve your seat <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                    Reserve your seat <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
                     <p>
-                    Send your reservation to the driver, and pay for your seat securely through the app as soon as it is confirmed.
+                      Send your reservation to the driver, and pay for your seat securely through the app as soon as it is confirmed.
                     </p>
                   </div>
                 </li>
@@ -211,7 +276,7 @@
                     Let's Go!<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
                     <p>
-                    Travel with us peacefully and remember to provide a review at the end of the trip to tell us that you have arrived safely.
+                      Travel with us peacefully and remember to provide a review at the end of the trip to tell us that you have arrived safely.
                     </p>
                   </div>
                 </li>
@@ -238,7 +303,7 @@
           <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
             <h3>Turkar improves Istanbul's commute.</h3>
             <p class="fst-italic">
-            Reducing traffic and pollution for a greener, smoother urban experience.
+              Reducing traffic and pollution for a greener, smoother urban experience.
             </p>
 
             <div class="skills-content">
@@ -353,7 +418,7 @@
         <div class="section-title">
           <h2>Reviews</h2>
           <p>Welcome to Turkar - Your Urban Mobility Companion!
-At Turkar, we're committed to transforming your daily commute into a seamless and enjoyable experience. Discover the power of our app designed to make your journeys smarter, more efficient, and environmentally friendly.</p>
+            At Turkar, we're committed to transforming your daily commute into a seamless and enjoyable experience. Discover the power of our app designed to make your journeys smarter, more efficient, and environmentally friendly.</p>
         </div>
 
         <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
@@ -551,10 +616,10 @@ At Turkar, we're committed to transforming your daily commute into a seamless an
         <div class="section-title">
           <h2>Pricing</h2>
           <p>"At Turkar, we prioritize your ease with versatile payment options. Seamlessly settle transactions with your credit card for a secure, fast, and hassle-free experience, or opt for the personal touch of hand-to-hand payments. Whether it's a subscription renewal or a one-time payment, Turkar ensures straightforward and efficient transactions, providing you with the utmost security and convenience. Your journey, your way – both on the road and in payments."
-</p>
+          </p>
         </div>
 
-        
+
 
       </div>
     </section><!-- End Pricing Section -->
@@ -574,7 +639,7 @@ At Turkar, we're committed to transforming your daily commute into a seamless an
               <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">1. How does Turkar optimize my commute? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
                 <p>
-                Turkar optimizes your commute by providing real-time traffic updates and offering intelligent routing options. This helps you avoid congestion, saving time and making your journey more efficient.
+                  Turkar optimizes your commute by providing real-time traffic updates and offering intelligent routing options. This helps you avoid congestion, saving time and making your journey more efficient.
                 </p>
               </div>
             </li>
@@ -583,7 +648,7 @@ At Turkar, we're committed to transforming your daily commute into a seamless an
               <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">2. Are there eco-friendly features on Turkar? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                Yes, Turkar promotes eco-friendly commuting with features such as eco-driving tips, contributing to fuel efficiency and a reduction in vehicle emissions.
+                  Yes, Turkar promotes eco-friendly commuting with features such as eco-driving tips, contributing to fuel efficiency and a reduction in vehicle emissions.
                 </p>
               </div>
             </li>
@@ -592,7 +657,7 @@ At Turkar, we're committed to transforming your daily commute into a seamless an
               <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">3. How can I find a ride or offer my carpool services <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                Easy! You just have to add your vehicle and our team will check whether the vehicle responds to our required criteria.
+                  Easy! You just have to add your vehicle and our team will check whether the vehicle responds to our required criteria.
                 </p>
               </div>
             </li>
@@ -601,7 +666,7 @@ At Turkar, we're committed to transforming your daily commute into a seamless an
               <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">4. Can I make payments directly by hand? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                Yes, Turkar provides the option for hand-to-hand payments, allowing you to make transactions directly for a personalized and efficient payment experience.
+                  Yes, Turkar provides the option for hand-to-hand payments, allowing you to make transactions directly for a personalized and efficient payment experience.
                 </p>
               </div>
             </li>
@@ -610,7 +675,7 @@ At Turkar, we're committed to transforming your daily commute into a seamless an
               <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">5. How secure are credit card payments on Turkar? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                Turkar ensures the security of credit card payments through a secure payment gateway, guaranteeing safe, fast, and hassle-free transactions.
+                  Turkar ensures the security of credit card payments through a secure payment gateway, guaranteeing safe, fast, and hassle-free transactions.
                 </p>
               </div>
             </li>
@@ -619,7 +684,7 @@ At Turkar, we're committed to transforming your daily commute into a seamless an
               <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">6. What safety measures are in place for users? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                Our team will provide you all the reviews about the driver and let you decide if it is safe for you or not. 
+                  Our team will provide you all the reviews about the driver and let you decide if it is safe for you or not.
                 </p>
               </div>
             </li>
@@ -628,7 +693,7 @@ At Turkar, we're committed to transforming your daily commute into a seamless an
               <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">7. Can I bring additional passengers or make stops along the way? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                No! for additional passengers because we want to have an historique for all the passengers using our website for security reasons. and for making stops along the way, it's allowed only for critical situations, You can arrange that with the driver.
+                  No! for additional passengers because we want to have an historique for all the passengers using our website for security reasons. and for making stops along the way, it's allowed only for critical situations, You can arrange that with the driver.
                 </p>
               </div>
             </li>
@@ -735,9 +800,9 @@ At Turkar, we're committed to transforming your daily commute into a seamless an
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Turkar</h3>
             <p>
-            YENİBOSNA, ZAFER MAHALLESİ <br>
-            ISTANBUL, 34197<br>
-            Türkiye <br><br>
+              YENİBOSNA, ZAFER MAHALLESİ <br>
+              ISTANBUL, 34197<br>
+              Türkiye <br><br>
               <strong>Phone:</strong> +1 5589 55488 55<br>
               <strong>Email:</strong> info@example.com<br>
             </p>

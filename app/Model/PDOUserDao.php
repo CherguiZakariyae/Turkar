@@ -145,4 +145,13 @@ class PDOUserDao
             return null;
         }
     }
+    public function getCountUsers()
+    {
+        $list = $this->getAllUsers();
+        if ($list !== null) {
+            return count($list);
+        } else {
+            return 0;
+        }
+    }
 }

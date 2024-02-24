@@ -6,3 +6,7 @@
  */
 include_once("Action.php");
 $action = new Action();
+$tripsCount = $action->getService()->getPDOTrip()->getCountTrips();
+$usersCount = $action->getService()->getPDOUser()->getCountUsers();
+$vehiclesCount = $action->getService()->getPDOVehicle()->getCountVehicles();
+$trips = $action->getService()->getLatestTrips();
