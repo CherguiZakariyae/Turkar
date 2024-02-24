@@ -48,4 +48,6 @@ define("_Brand","Brand");
 define("_PlateNumber","Plate Number");
 define("_Model","Model");
 define("_Year","Year");
+define("_Departure","Departure");
+define("_Arrival","Arrival");
 ?>
