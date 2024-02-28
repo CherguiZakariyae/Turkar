@@ -64,4 +64,7 @@ define("_Accept","Accept");
 define("_Refuse","Refuse");
 define("_Review","Review");
 define("_Payment","Payment");
+define("_Rating","Rating");
+define("_Comment","Comment");
+define("_Amount","Amount");
 ?>

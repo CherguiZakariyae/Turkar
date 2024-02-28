@@ -127,6 +127,30 @@ $router = array(
 		'Redirect' => 'manageTrips',
 		'Action' => 'Action_AddRequest',
 	),
+	'newReview' => array(
+		//'View' => 'AddVehicle',
+		'View' => 'AddReview',
+		'Action' => 'Action_New'
+	),
+	'addReview' => array(
+		//'View' => 'AddTrip',
+		'Redirect' => 'manageTrips',
+		'Action' => 'Action_AddReview',
+	),
+	'newPayment' => array(
+		//'View' => 'AddVehicle',
+		'View' => 'AddPayment',
+		'Action' => 'Action_New'
+	),
+	'addPayment' => array(
+		//'View' => 'AddTrip',
+		'Redirect' => 'manageTrips',
+		'Action' => 'Action_AddPayment',
+	),
+	'showUser' => array(
+		'View' => 'ShowUser',
+		'Action' => 'Action_ShowUser'
+	),
 	'manageTrips' => array( /*Trips Management*/
 		'View' => 'Trips',
 		'Action' => 'Action_Trips'

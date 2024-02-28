@@ -129,7 +129,34 @@
                             </div>
                         </div>
                         <div class="col-sm-4">
-                            <!-- PRODUCT LIST -->
+                            <!-- Request LIST -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Owner</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body p-0">
+                                    <ul class="products-list product-list-in-card pl-2 pr-2">
+                                        <!-- /.item -->
+                                        <li class="item">
+                                            <div class="product-img">
+                                                <img src="Att/Hamza.png" alt="User Image" class="img-size-50">
+                                            </div>
+                                            <div class="product-info">
+                                                <a href="index.php?action=showUser&id=1" class="product-title">Zack</a>
+                                                <span class="product-description">
+                                                    <small>⭐⭐⭐⭐⭐</small>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <!-- /.item -->
+                                    </ul>
+                                </div>
+                                <!-- /.card-body -->
+
+                            </div>
+                            <!-- /.card -->
+                            <!-- Request LIST -->
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">Requests Accepted</h3>
@@ -149,24 +176,24 @@
                                         <!-- /.item -->
                                         <li class="item">
                                             <div class="product-img">
-                                                <img src="Att/me.png" alt="User Image" class="img-size-50">
+                                                <img src="Att/me.jpg" alt="User Image" class="img-size-50">
                                             </div>
                                             <div class="product-info">
-                                                <a href="javascript:void(0)" class="product-title">Zack</a>
+                                                <a href="index.php?action=showUser&id=1" class="product-title">Zack</a>
                                                 <span class="product-description">
-                                                    Phone : 0623100584
+                                                    Payment : <span class="badge badge-success">Done</span>
                                                 </span>
                                             </div>
                                         </li>
                                         <!-- /.item -->
                                         <li class="item">
                                             <div class="product-img">
-                                                <img src="Att/Photo.PNG" alt="User Image" class="img-size-50">
+                                                <img src="Att/PHOTO.jpeg" alt="User Image" class="img-size-50">
                                             </div>
                                             <div class="product-info">
-                                                <a href="javascript:void(0)" class="product-title">Youssef</a>
+                                                <a href="index.php?action=showUser&id=1" class="product-title">Youssef</a>
                                                 <span class="product-description">
-                                                    Phone : 0623100584
+                                                    Payment : <span class="badge badge-danger">None</span>
                                                 </span>
                                             </div>
                                         </li>
@@ -174,10 +201,7 @@
                                     </ul>
                                 </div>
                                 <!-- /.card-body -->
-                                <div class="card-footer text-center">
-                                    <a href="javascript:void(0)" class="uppercase"></a>
-                                </div>
-                                <!-- /.card-footer -->
+
                             </div>
                             <!-- /.card -->
                         </div>

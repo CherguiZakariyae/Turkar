@@ -7,6 +7,16 @@
         document.getElementById('redirbtn').click();
     }
 
+    function review(id) {
+        document.getElementById('redirect').innerHTML = '<form style="display:none;" position="absolute" method="post" action="index.php"><input id="redirbtn" type="submit" name="id" value=' + id + '><input id="redirbtn" type="text" name="action" value="newReview"></form>';
+        document.getElementById('redirbtn').click();
+    }
+
+    function payment(id) {
+        document.getElementById('redirect').innerHTML = '<form style="display:none;" position="absolute" method="post" action="index.php"><input id="redirbtn" type="submit" name="id" value=' + id + '><input id="redirbtn" type="text" name="action" value="newPayment"></form>';
+        document.getElementById('redirbtn').click();
+    }
+
     function show(id) {
         document.getElementById('redirect').innerHTML = '<form style="display:none;" position="absolute" method="post" action="index.php"><input id="redirbtn" type="submit" name="id" value=' + id + '><input id="redirbtn" type="text" name="action" value="showTrip"></form>';
         document.getElementById('redirbtn').click();
@@ -63,8 +73,8 @@
                                         <div class="btn-group btn-group-sm">
                                             <a title="<?= _Request; ?>" href="javascript:request(<?= $list[$i]->getId(); ?>)" class="btn btn-info"><i class="fas fa-plus"></i></a>
                                             <a title="<?= _Show; ?>" href="javascript:show(<?= $list[$i]->getId(); ?>)" class="btn btn-secondary"><i class="fas fa-eye"></i></a>
-                                            <a title="<?= _Review; ?>" href="javascript:show(<?= $list[$i]->getId(); ?>)" class="btn btn-warning"><i class="fas fa-comment"></i></a>
-                                            <a title="<?= _Payment; ?>" href="javascript:show(<?= $list[$i]->getId(); ?>)" class="btn btn-primary"><i class="fas fa-wallet"></i></a>
+                                            <a title="<?= _Review; ?>" href="javascript:review(<?= $list[$i]->getId(); ?>)" class="btn btn-warning"><i class="fas fa-comment"></i></a>
+                                            <a title="<?= _Payment; ?>" href="javascript:payment(<?= $list[$i]->getId(); ?>)" class="btn btn-primary"><i class="fas fa-wallet"></i></a>
                                         </div>
                                     </td>
                                 </tr>

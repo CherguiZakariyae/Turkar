@@ -149,7 +149,7 @@
                                         <!-- /.item -->
                                         <li class="item">
                                             <div class="product-img">
-                                                <img src="Att/me.png" alt="User Image" class="img-size-50">
+                                                <img src="Att/me.jpg" alt="User Image" class="img-size-50">
                                             </div>
                                             <div class="product-info">
                                                 <a href="javascript:void(0)" class="product-title">Zack</a>
@@ -165,7 +165,7 @@
                                         <!-- /.item -->
                                         <li class="item">
                                             <div class="product-img">
-                                                <img src="Att/Photo.PNG" alt="User Image" class="img-size-50">
+                                                <img src="Att/PHOTO.jpeg" alt="User Image" class="img-size-50">
                                             </div>
                                             <div class="product-info">
                                                 <a href="javascript:void(0)" class="product-title">Youssef</a>
