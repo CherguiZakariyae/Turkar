@@ -6,6 +6,3 @@
  */
 include_once("Action.php");
 $action = new Action();
-
-//$var = $action->getService()->getPDOLocation()->getLocationById($_POST['id']);
-$action->getService()->getPDOVehicle()->deleteVehicle($_POST['id']);

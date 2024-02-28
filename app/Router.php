@@ -109,6 +109,7 @@ $router = array(
 		'Action' => 'Action_ShowVehicle'
 	),
 	'saveVehicle' => array(
+		//'View' => 'EditVehicle',
 		'Redirect' => 'manageVehicles',
 		'Action' => 'Action_SaveVehicle'
 	),
@@ -116,9 +117,43 @@ $router = array(
 		'Redirect' => 'manageVehicles',
 		'Action' => 'Action_DeleteVehicle'
 	),
+	'newRequest' => array(
+		//'View' => 'AddVehicle',
+		'View' => 'AddRequest',
+		'Action' => 'Action_New'
+	),
+	'addRequest' => array(
+		//'View' => 'AddTrip',
+		'Redirect' => 'manageTrips',
+		'Action' => 'Action_AddRequest',
+	),
+	'newReview' => array(
+		//'View' => 'AddVehicle',
+		'View' => 'AddReview',
+		'Action' => 'Action_New'
+	),
+	'addReview' => array(
+		//'View' => 'AddTrip',
+		'Redirect' => 'manageTrips',
+		'Action' => 'Action_AddReview',
+	),
+	'newPayment' => array(
+		//'View' => 'AddVehicle',
+		'View' => 'AddPayment',
+		'Action' => 'Action_New'
+	),
+	'addPayment' => array(
+		//'View' => 'AddTrip',
+		'Redirect' => 'manageTrips',
+		'Action' => 'Action_AddPayment',
+	),
+	'showUser' => array(
+		'View' => 'ShowUser',
+		'Action' => 'Action_ShowUser'
+	),
 	'manageTrips' => array( /*Trips Management*/
-		'View' => 'ManageTrips',
-		'Action' => 'Action_ManageTrips'
+		'View' => 'Trips',
+		'Action' => 'Action_Trips'
 	),
 	'newTrip' => array(
 		'View' => 'AddTrip',

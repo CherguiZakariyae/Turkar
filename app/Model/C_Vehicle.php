@@ -9,10 +9,11 @@ class Vehicle
     private $model;
     private $year;
     private $plateNumber;
+    private $picture;
     private $enable;
     private $dateCreate;
 
-    public function __construct($id, $ownerID, $name, $brand, $model, $year, $plateNumber, $enable, $dateCreate)
+    public function __construct($id, $ownerID, $name, $brand, $model, $year, $plateNumber, $picture, $enable, $dateCreate)
     {
         $this->id = $id;
         $this->ownerID = $ownerID;
@@ -21,6 +22,7 @@ class Vehicle
         $this->model = $model;
         $this->year = $year;
         $this->plateNumber = $plateNumber;
+        $this->picture = $picture;
         $this->enable = $enable;
         $this->dateCreate = $dateCreate;
     }
@@ -121,6 +123,26 @@ class Vehicle
     public function setDateCreate($dateCreate)
     {
         $this->dateCreate = $dateCreate;
+        return $this;
+    }
+
+    /**
+     * Get the value of picture
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * Set the value of picture
+     *
+     * @return  self
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
         return $this;
     }
 }

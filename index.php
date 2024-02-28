@@ -149,9 +149,72 @@
               <div class="row">
                 <div class="col-12 col-md-7"></div>
                 <div class="col-12 col-md-5 mb-4" style="text-align: right;">
-                  <button type="button" class="btn-get-started scrollto" data-toggle="modal" data-target="#modal-lg">
+                  <button type="button" class=" btn btn-get-started scrollto" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Search
                   </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Trips Results</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>Departure</th>
+                                <th>Arrival</th>
+                                <th>Time</th>
+                                <th>Seats</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td style="text-align: left;">Fes</td>
+                                <td style="text-align: left;">Rabat</td>
+                                <td>12:30</td>
+                                <td>3</td>
+                                <td>200</td>
+                                <td><span class="badge bg-warning">Started</span></td>
+                              </tr>
+                              <tr>
+                                <td style="text-align: left;">Fes</td>
+                                <td style="text-align: left;">Rabat</td>
+                                <td>14:30</td>
+                                <td>2</td>
+                                <td>180</td>
+                                <td><span class="badge bg-danger">Soon</span></td>
+                              </tr>
+                              <tr>
+                                <td style="text-align: left;">Fes</td>
+                                <td style="text-align: left;">Rabat</td>
+                                <td>14:30</td>
+                                <td>2</td>
+                                <td>180</td>
+                                <td><span class="badge bg-success">Arrived</span></td>
+                              </tr>
+                              <tr>
+                                <td style="text-align: left;">Fes</td>
+                                <td style="text-align: left;">Rabat</td>
+                                <td>18:00</td>
+                                <td>2</td>
+                                <td>180</td>
+                                <td><span class="badge bg-info">Processing</span></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <a href="app/" class="btn btn-primary">Go to the App</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 

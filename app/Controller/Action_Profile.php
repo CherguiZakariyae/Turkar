@@ -6,3 +6,5 @@
  */
 include_once("Action.php");
 $action = new Action();
+
+$var = $action->getService()->getUser($_SESSION['idUser']);

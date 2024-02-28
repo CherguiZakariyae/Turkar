@@ -9,6 +9,6 @@ $action = new Action();
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
 } else {
-    $id = $_SESSION['idLocation'];
+    $id = $_SESSION['idVehicle'];
 }
-$var = $action->getService()->getPDOLocation()->getLocationById($id);
+$var = $action->getService()->getPDOVehicle()->getVehicleById($id);

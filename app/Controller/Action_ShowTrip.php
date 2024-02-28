@@ -6,6 +6,10 @@
  */
 include_once("Action.php");
 $action = new Action();
-
-//$var = $action->getService()->getPDOLocation()->getLocationById($_POST['id']);
-$action->getService()->getPDOVehicle()->deleteVehicle($_POST['id']);
+if (isset($_POST['id'])) {
+    $id = $_POST['id'];
+} else {
+    $id = $_SESSION['idLocation'];
+}
+$var = $action->getService()->getPDOTrip()->getTripById($id);
+$locations = $action->getService()->getPDOLocation()->getAllLocations();

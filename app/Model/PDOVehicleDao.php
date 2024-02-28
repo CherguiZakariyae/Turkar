@@ -12,8 +12,8 @@ class PDOVehicleDao
 
     public function addVehicle(Vehicle $var)
     {
-        $sqlQuery = 'INSERT INTO vehicles(ownerID, name, brand, model, year, plateNumber, enable, dateCreate) 
-                     VALUES (:ownerID, :name, :brand, :model, :year, :plateNumber, :enable, NOW())';
+        $sqlQuery = 'INSERT INTO vehicles(ownerID, name, brand, model, year, plateNumber,picture, enable, dateCreate) 
+                     VALUES (:ownerID, :name, :brand, :model, :year, :plateNumber,:picture, :enable, NOW())';
         $insertStatement = $this->database->getDb()->prepare($sqlQuery);
         $insertStatement->execute([
             'ownerID' => $var->getOwnerID(),
@@ -22,6 +22,7 @@ class PDOVehicleDao
             'model' => $var->getModel(),
             'year' => $var->getYear(),
             'plateNumber' => $var->getPlateNumber(),
+            'picture' => $var->getPicture(),
             'enable' => $var->getEnable(),
         ]);
         return $this->database->getDb()->lastInsertId();
@@ -31,7 +32,7 @@ class PDOVehicleDao
     {
         $sqlQuery = 'UPDATE vehicles 
                      SET ownerID = :ownerID, name = :name, brand = :brand, model = :model, 
-                         year = :year, plateNumber = :plateNumber, enable = :enable,
+                         year = :year, plateNumber = :plateNumber, picture=:picture, enable = :enable
                      WHERE id = :id';
         $updateStatement = $this->database->getDb()->prepare($sqlQuery);
         $updateStatement->execute([
@@ -42,6 +43,7 @@ class PDOVehicleDao
             'model' => $var->getModel(),
             'year' => $var->getYear(),
             'plateNumber' => $var->getPlateNumber(),
+            'picture' => $var->getPicture(),
             'enable' => $var->getEnable(),
         ]);
     }
@@ -67,6 +69,7 @@ class PDOVehicleDao
             $row['model'],
             $row['year'],
             $row['plateNumber'],
+            $row['picture'],
             $row['enable'],
             $row['dateCreate']
         );
@@ -85,6 +88,7 @@ class PDOVehicleDao
                 $row['model'],
                 $row['year'],
                 $row['plateNumber'],
+                $row['picture'],
                 $row['enable'],
                 $row['dateCreate']
             );
@@ -114,6 +118,7 @@ class PDOVehicleDao
                 $row['model'],
                 $row['year'],
                 $row['plateNumber'],
+                $row['picture'],
                 $row['enable'],
                 $row['dateCreate']
             );
