@@ -15,6 +15,9 @@ class User
     private $enable;
     private $dateCreate;
 
+    private $vehicles;
+    private $trips;
+
     /**
      * User constructor.
      * @param $id
@@ -271,6 +274,46 @@ class User
     public function setDateCreate($dateCreate)
     {
         $this->dateCreate = $dateCreate;
+        return $this;
+    }
+
+    /**
+     * Get the value of vehicles
+     */
+    public function getVehicles()
+    {
+        return $this->vehicles;
+    }
+
+    /**
+     * Set the value of vehicles
+     *
+     * @return  self
+     */
+    public function setVehicles($vehicles)
+    {
+        $this->vehicles = $vehicles;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of trips
+     */
+    public function getTrips()
+    {
+        return $this->trips;
+    }
+
+    /**
+     * Set the value of trips
+     *
+     * @return  self
+     */
+    public function setTrips($trips)
+    {
+        $this->trips = $trips;
+
         return $this;
     }
 }
