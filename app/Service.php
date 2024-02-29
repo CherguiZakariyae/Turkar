@@ -114,10 +114,48 @@ class service
     {
         return $this->getPDOUser()->authenticateUserByEmail($email, $password);
     }
-
+    public function getUser($id)
+    {
+        $var = $this->getPDOUser()->getUserById($id);
+        $vehicles = $this->getPDOVehicle()->getAllVehiclesByUser($id);
+        $trips = $this->getAllTripsByUser($id);
+        $var->setVehicles($vehicles);
+        $var->setTrips($trips);
+        return $var;
+    }
     public function getAllTrips()
     {
         $list = $this->getPDOTrip()->getAllTrips();
+        if ($list !== null) {
+            foreach ($list as $var) {
+                $startLocation = $this->getPDOLocation()->getLocationById($var->getStartLocationId());
+                $endLocation = $this->getPDOLocation()->getLocationById($var->getEndLocationId());
+                $driver = $this->getPDOUser()->getUserById($var->getDriverId());
+                $var->setStartLocation($startLocation);
+                $var->setEndLocation($endLocation);
+                $var->setDriver($driver);
+            }
+        }
+        return $list;
+    }
+    public function getAllTripsByUser($user)
+    {
+        $list = $this->getPDOTrip()->getAllTripsByUser($user);
+        if ($list !== null) {
+            foreach ($list as $var) {
+                $startLocation = $this->getPDOLocation()->getLocationById($var->getStartLocationId());
+                $endLocation = $this->getPDOLocation()->getLocationById($var->getEndLocationId());
+                $driver = $this->getPDOUser()->getUserById($var->getDriverId());
+                $var->setStartLocation($startLocation);
+                $var->setEndLocation($endLocation);
+                $var->setDriver($driver);
+            }
+        }
+        return $list;
+    }
+    public function getLatestTrips()
+    {
+        $list = $this->getPDOTrip()->getLatestTrips();
         if ($list !== null) {
             foreach ($list as $var) {
                 $startLocation = $this->getPDOLocation()->getLocationById($var->getStartLocationId());

@@ -2,22 +2,24 @@
 
 <?php ob_start(); ?>
 <script>
-    function edit(id) {
-        document.getElementById('redirect').innerHTML = '<form style="display:none;" position="absolute" method="post" action="index.php"><input id="redirbtn" type="submit" name="id" value=' + id + '><input id="redirbtn" type="text" name="action" value="editTrip"></form>';
+    function request(id) {
+        document.getElementById('redirect').innerHTML = '<form style="display:none;" position="absolute" method="post" action="index.php"><input id="redirbtn" type="submit" name="id" value=' + id + '><input id="redirbtn" type="text" name="action" value="newRequest"></form>';
+        document.getElementById('redirbtn').click();
+    }
+
+    function review(id) {
+        document.getElementById('redirect').innerHTML = '<form style="display:none;" position="absolute" method="post" action="index.php"><input id="redirbtn" type="submit" name="id" value=' + id + '><input id="redirbtn" type="text" name="action" value="newReview"></form>';
+        document.getElementById('redirbtn').click();
+    }
+
+    function payment(id) {
+        document.getElementById('redirect').innerHTML = '<form style="display:none;" position="absolute" method="post" action="index.php"><input id="redirbtn" type="submit" name="id" value=' + id + '><input id="redirbtn" type="text" name="action" value="newPayment"></form>';
         document.getElementById('redirbtn').click();
     }
 
     function show(id) {
         document.getElementById('redirect').innerHTML = '<form style="display:none;" position="absolute" method="post" action="index.php"><input id="redirbtn" type="submit" name="id" value=' + id + '><input id="redirbtn" type="text" name="action" value="showTrip"></form>';
         document.getElementById('redirbtn').click();
-    }
-
-    function deleteA(id) {
-        if (confirm("")) {
-            document.getElementById('redirect').innerHTML = '<form style="display:none;" position="absolute" method="post" action="index.php"><input id="redirbtn" type="submit" name="id" value=' + id + '><input id="redirbtn" type="text" name="action" value="deleteTrip"></form>';
-            document.getElementById('redirbtn').click();
-        }
-
     }
 
     function newA() {
@@ -51,19 +53,28 @@
                         <?php
                         if ($list != null) {
                             $L = count($list);
-                            for ($i = 0; $i < $L; $i++) { ?>
+                            for ($i = 0; $i < $L; $i++) {
+                                if ($list[$i]->getStatus() == "Arrived")
+                                    $badge = "badge-success";
+                                if ($list[$i]->getStatus() == "Started")
+                                    $badge = "badge-warning";
+                                if ($list[$i]->getStatus() == "Soon")
+                                    $badge = "badge-danger";
+                                if ($list[$i]->getStatus() == "Processing")
+                                    $badge = "badge-info"; ?>
                                 <tr>
                                     <td><?= $list[$i]->getStartLocation()->getName(); ?></td>
                                     <td><?= $list[$i]->getEndLocation()->getName(); ?></td>
                                     <td><?= $list[$i]->getDepartureTime(); ?></td>
                                     <td><?= $list[$i]->getAvailableSeats(); ?></td>
                                     <td><?= $list[$i]->getPrice(); ?></td>
-                                    <td><?= $list[$i]->getStatus(); ?></td>
+                                    <td><span class="badge <?= $badge ?>"><?= $list[$i]->getStatus(); ?></span></td>
                                     <td class="text-center py-0 align-middle">
                                         <div class="btn-group btn-group-sm">
-                                            <a title="Editer" href="javascript:edit(<?= $list[$i]->getId(); ?>)" class="btn btn-info"><i class="fas fa-edit"></i></a>
-                                            <a title="Visionner" href="javascript:show(<?= $list[$i]->getId(); ?>)" class="btn btn-secondary"><i class="fas fa-eye"></i></a>
-                                            <a title="Supprimer" onclick="return deleteA(<?= $list[$i]->getId(); ?>)" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            <a title="<?= _Request; ?>" href="javascript:request(<?= $list[$i]->getId(); ?>)" class="btn btn-info"><i class="fas fa-plus"></i></a>
+                                            <a title="<?= _Show; ?>" href="javascript:show(<?= $list[$i]->getId(); ?>)" class="btn btn-secondary"><i class="fas fa-eye"></i></a>
+                                            <a title="<?= _Review; ?>" href="javascript:review(<?= $list[$i]->getId(); ?>)" class="btn btn-warning"><i class="fas fa-comment"></i></a>
+                                            <a title="<?= _Payment; ?>" href="javascript:payment(<?= $list[$i]->getId(); ?>)" class="btn btn-primary"><i class="fas fa-wallet"></i></a>
                                         </div>
                                     </td>
                                 </tr>

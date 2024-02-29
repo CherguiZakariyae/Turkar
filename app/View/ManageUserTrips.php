@@ -1,10 +1,3 @@
-<?Php
-
-/**
- *the content of the manage all Trips page.
- */
-?>
-
 <?php $title = _Trips; ?>
 
 <?php ob_start(); ?>
@@ -33,43 +26,52 @@
     }
 </script>
 <div class="row">
-    <div class="col-md-12">
-        <!-- /.card -->
-        <div class="card card-danger">
-            <div class="card-header bg-stlaform d-flex justify-content-between align-items-center">
-                <h3 class="card-title m0"><?= _Trips; ?></h3>
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= _Trips ?></h3>
             </div>
-            <div class="card-body p-3">
+            <!-- /.card-header -->
+            <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th class="text-center"><?= _Name; ?></th>
-                            <th class="text-center"><?= _Status; ?></th>
-                            <th>
-                                <div class="d-flex align-items-center justify-content-center ">
-                                    <a href="javascript:newA()" class="btn btn-sm btn-success bg-stlapse font-weight-bold"><?php echo _New; ?></a>
-                                </div>
-                            </th>
-                        </tr>
+                    <thead style="background-color: #e31a33;">
+                        <th><?= _StartLocation; ?></th>
+                        <th><?= _EndLocation; ?></th>
+                        <th><?= _DepartureTime; ?></th>
+                        <th><?= _AvailableSeats; ?></th>
+                        <th><?= _Price; ?></th>
+                        <th><?= _Status; ?></th>
+                        <th>
+                            <div class="d-flex align-items-center justify-content-center ">
+                                <a href="javascript:newA()" class="btn btn-sm btn-success bg-stlapse font-weight-bold"><?php echo _New; ?></a>
+                            </div>
+                        </th>
                     </thead>
                     <tbody>
                         <?php
                         if ($list != null) {
                             $L = count($list);
-                            for ($i = 0; $i < $L; $i++) { ?>
+                            for ($i = 0; $i < $L; $i++) {
+                                if ($list[$i]->getStatus() == "Arrived")
+                                    $badge = "badge-success";
+                                if ($list[$i]->getStatus() == "Started")
+                                    $badge = "badge-warning";
+                                if ($list[$i]->getStatus() == "Soon")
+                                    $badge = "badge-danger";
+                                if ($list[$i]->getStatus() == "Processing")
+                                    $badge = "badge-info"; ?>
                                 <tr>
-                                    <td><?= $list[$i]->getName(); ?></td>
-                                    <td class="text-center"><?php if ($list[$i]->getEnable() == 0) { ?>
-                                            <span class="badge badge-danger"><?= _Disable ?></span>
-                                        <?php } else { ?>
-                                            <span class="badge badge-success"><?= _Enable ?></span>
-                                        <?php } ?>
-                                    </td>
+                                    <td><?= $list[$i]->getStartLocation()->getName(); ?></td>
+                                    <td><?= $list[$i]->getEndLocation()->getName(); ?></td>
+                                    <td><?= $list[$i]->getDepartureTime(); ?></td>
+                                    <td><?= $list[$i]->getAvailableSeats(); ?></td>
+                                    <td><?= $list[$i]->getPrice(); ?></td>
+                                    <td><span class="badge <?= $badge ?>"><?= $list[$i]->getStatus(); ?></span></td>
                                     <td class="text-center py-0 align-middle">
                                         <div class="btn-group btn-group-sm">
-                                            <a title="Update" href="javascript:edit(<?= $list[$i]->getId(); ?>)" class="btn btn-info"><i class="fas fa-edit"></i></a>
-                                            <a title="Show" href="javascript:show(<?= $list[$i]->getId(); ?>)" class="btn btn-secondary"><i class="fas fa-eye"></i></a>
-                                            <a title="Delete" onclick="return deleteA(<?= $list[$i]->getId(); ?>)" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            <a title="Editer" href="javascript:edit(<?= $list[$i]->getId(); ?>)" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                                            <a title="Visionner" href="javascript:show(<?= $list[$i]->getId(); ?>)" class="btn btn-secondary"><i class="fas fa-eye"></i></a>
+                                            <a title="Supprimer" onclick="return deleteA(<?= $list[$i]->getId(); ?>)" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -77,7 +79,6 @@
                         } ?>
                     </tbody>
                     <tfoot>
-
                     </tfoot>
                 </table>
             </div>
@@ -85,13 +86,15 @@
         </div>
         <!-- /.card -->
     </div>
+    <!-- /.col -->
 </div>
+<!-- /.row -->
 
 <?php $content = ob_get_clean(); ?>
-<div id="redirect"></div>
-
 
 <?php require('Template.php'); ?>
+<div id="redirect"></div>
+
 <!-- Page specific script -->
 <!-- DataTables -->
 <link rel="stylesheet" href="Public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">

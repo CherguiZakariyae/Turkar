@@ -10,7 +10,7 @@
 
             <div class="info-box-content">
                 <span class="info-box-text">Vehicles</span>
-                <span class="info-box-number">9</span>
+                <span class="info-box-number"><?= $vehiclesCount; ?></span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -27,7 +27,7 @@
 
             <div class="info-box-content">
                 <span class="info-box-text">Trips</span>
-                <span class="info-box-number">74</span>
+                <span class="info-box-number"><?= $tripsCount; ?></span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -40,7 +40,7 @@
 
             <div class="info-box-content">
                 <span class="info-box-text">Members</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-number"><?= $usersCount; ?></span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -81,42 +81,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                <td>aaaaaa</td>
-                                <td>bbbbbb</td>
-                                <td>26/01/2024 12:00</td>
-                                <td>2</td>
-                                <td>100</td>
-                                <td><span class="badge badge-success">Arrived</span></td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                <td>aaaaaa</td>
-                                <td>bbbbbb</td>
-                                <td>26/01/2024 12:00</td>
-                                <td>2</td>
-                                <td>100</td>
-                                <td><span class="badge badge-warning">Started</span></td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                <td>aaaaaa</td>
-                                <td>bbbbbb</td>
-                                <td>26/01/2024 12:00</td>
-                                <td>2</td>
-                                <td>100</td>
-                                <td><span class="badge badge-danger">Soon</span></td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                <td>aaaaaa</td>
-                                <td>bbbbbb</td>
-                                <td>26/01/2024 12:00</td>
-                                <td>2</td>
-                                <td>100</td>
-                                <td><span class="badge badge-info">Processing</span></td>
-                            </tr>
+                            <?php
+                            if ($trips != null) {
+                                foreach ($trips as $var) {
+                                    if ($var->getStatus() == "Arrived")
+                                        $badge = "badge-success";
+                                    if ($var->getStatus() == "Started")
+                                        $badge = "badge-warning";
+                                    if ($var->getStatus() == "Soon")
+                                        $badge = "badge-danger";
+                                    if ($var->getStatus() == "Processing")
+                                        $badge = "badge-info";
+                            ?>
+                                    <tr>
+                                        <td><a href="#"><?= $var->getId(); ?></a></td>
+                                        <td><?= $var->getStartLocation()->getName(); ?></td>
+                                        <td><?= $var->getEndLocation()->getName(); ?></td>
+                                        <td><?= $var->getDepartureTime(); ?></td>
+                                        <td><?= $var->getAvailableSeats(); ?></td>
+                                        <td><?= $var->getPrice(); ?></td>
+                                        <td><span class="badge <?= $badge ?>"><?= $var->getStatus(); ?></span></td>
+                                    </tr>
+                            <?php }
+                            } ?>
                         </tbody>
                     </table>
                 </div>
@@ -124,8 +111,8 @@
             </div>
             <!-- /.card-body -->
             <div class="card-footer clearfix">
-                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Trip</a>
-                <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Trips</a>
+                <a href="index.php?action=newTrip" class="btn btn-sm btn-info float-left">Place New Trip</a>
+                <a href="index.php?action=trips" class="btn btn-sm btn-secondary float-right">View All Trips</a>
             </div>
             <!-- /.card-footer -->
         </div>

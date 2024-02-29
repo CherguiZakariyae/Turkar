@@ -20,7 +20,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="index.php" method="POST" id="addVehicle">
+            <form action="index.php" method="POST" id="addVehicle" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6">
@@ -32,10 +32,20 @@
                                 <label for="brand"><?= _Brand; ?></label>
                                 <input type="text" class="form-control" id="brand" placeholder="<?= _Enter . " " . _Brand; ?>" name="brand">
                             </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="enable" name="enable" checked>
-                                <label class="form-check-label" for="enable"><?= _Enable; ?></label>
-                                <br>
+                            <div class="form-group">
+                                <label for="picture"><?= _Picture; ?></label>
+
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="picture" name="picture">
+                                    <label class="custom-file-label" for="picture"><?= _ChooseFile; ?></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="enable" name="enable" checked>
+                                    <label class="form-check-label" for="enable"><?= _Enable; ?></label>
+                                    <br>
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -75,6 +85,14 @@
 
 <?php require('Template.php'); ?>
 <!-- controll inputs-->
+
+<!-- bs-custom-file-input -->
+<script src="Public/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script>
+    $(function() {
+        bsCustomFileInput.init();
+    });
+</script>
 <script>
     $(function() {
         $.validator.addMethod(

@@ -7,5 +7,5 @@
 include_once("Action.php");
 $action = new Action();
 
-$var = $action->getService()->getPDOLocation()->getLocationById($_POST['id']);
+//$var = $action->getService()->getPDOLocation()->getLocationById($_POST['id']);
 $action->getService()->getPDOLocation()->deleteLocation($_POST['id']);
