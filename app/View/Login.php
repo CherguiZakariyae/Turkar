@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="public/dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition login-page dark-mode">
+<body class="hold-transition login-page dark-mode" style="background-image: url('Public/dist/img/background.jpg') !important;">
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
@@ -76,7 +76,7 @@
 
                 <div class="social-auth-links text-center mt-2 mb-3">
                     <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i><?= _FaceebookSignIn; ?>
+                        <i class="fab fa-facebook-f mr-2"></i><?= _FaceebookSignIn; ?>
                     </a>
                     <a href="#" class="btn btn-block btn-danger">
                         <i class="fab fa-google mr-2"></i><?= _GoogleSignIn; ?>
