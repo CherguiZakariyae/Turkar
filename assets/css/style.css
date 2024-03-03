@@ -115,7 +115,7 @@ h6 {
 
 #header.header-scrolled,
 #header.header-inner-pages {
-  background: #e31a33;
+  background: #ff4364;
 }
 
 #header .logo {
@@ -1637,7 +1637,7 @@ section {
 --------------------------------------------------------------*/
 #footer {
   font-size: 14px;
-  background: #e31a33;
+  background: #ff4364;
 }
 
 #footer .footer-newsletter {
